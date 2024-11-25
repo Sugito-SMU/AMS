@@ -1,0 +1,1 @@
+<%response.redirect "pat_search.asp"%> 
