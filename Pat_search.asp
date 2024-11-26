@@ -1,43 +1,7 @@
 <%@ Language=VBScript %>
-<!-- #INCLUDE FILE="../includes/CheckParams.asp" -->
-<%
-	system = "SYSPATRON"
-	code   = "PATRONUPDATE"
-	access = "N"
-%>
+
 <!-- #INCLUDE FILE="secure.asp" -->
-<!-- #INCLUDE FILE="AdoVbs.Inc"  -->
 
-
-<%
-Function LeadingZero(str)
-      LeadingZero = Right("00" & str,2)
-End Function
-   
-Function FormatDateToDDMMYYYY(ClockDate)		' ClockDate in MM/DD/YYYY format, return in DD/MM/YYYY format
-	IF (ClockDate <> "") THEN
-		FormatDateToDDMMYYYY = LeadingZero(Day(ClockDate)) & "/" & LeadingZero(Month(ClockDate)) & "/" & Year(ClockDate)
-	ELSE
-		FormatDateToDDMMYYYY = ""
-	END	IF
-End Function
-
-IF REQUEST.FORM("submitsearch")<>"" THEN
-	NetworkId=LTRIM(ValidateAndEncodeXSSEx(REQUEST.FORM("NetworkId")))
-	PatName=LTRIM(ValidateAndEncodeXSSEx(REQUEST.FORM("PatName")))
-	PatDept=LTRIM(ValidateAndEncodeXSSEx(REQUEST.FORM("PatDept")))
-	SortCon=LTRIM(ValidateAndEncodeXSSEx(REQUEST.FORM("SortCon")))
-	ActiveFlg=LTRIM(ValidateAndEncodeXSSEx(REQUEST.FORM("ActiveFlg")))
-END IF
-%>
-<%
-SET CurrCmd = SERVER.CREATEOBJECT("ADODB.COMMAND")
-SET CurrCmd.ACTIVECONNECTION = OBJCONN
-strSQL = "SELECT * FROM V_DEPARTMENT ORDER BY DEPT_T"
-CurrCmd.CommandText = strSQL
-CurrCmd.CommandType = adCmdText
-set DeptList = CurrCmd.EXECUTE()
-%>
 
 <!-- #INCLUDE FILE="header.asp" -->
 <br>
