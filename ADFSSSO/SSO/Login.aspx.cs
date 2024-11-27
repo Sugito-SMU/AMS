@@ -1,18 +1,13 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Microsoft.Identity.Client;
-using Microsoft.IdentityModel.Claims;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace SSO
 {
