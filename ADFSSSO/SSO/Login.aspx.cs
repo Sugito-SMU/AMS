@@ -15,9 +15,9 @@ namespace SSO
 	{
 		private static Dictionary<string, string> _routeConfig = null;
 
-		private string tenantId = ConfigurationManager.AppSettings["AzureAD:TenantId"];
-		private string clientId = ConfigurationManager.AppSettings["AzureAD:ClientId"];
-		private string clientSecret = ConfigurationManager.AppSettings["AzureAD:ClientSecret"];
+		private string tenantId = SMU.Security.DPAPI.StringEncryption.Decrypt(ConfigurationManager.AppSettings["AzureAD:TenantId"]);
+		private string clientId = SMU.Security.DPAPI.StringEncryption.Decrypt(ConfigurationManager.AppSettings["AzureAD:ClientId"]);
+		private string clientSecret = SMU.Security.DPAPI.StringEncryption.Decrypt(ConfigurationManager.AppSettings["AzureAD:ClientSecret"]);
 		private string redirectUri = ConfigurationManager.AppSettings["AzureAD:RedirectUri"];
 
 		protected void Page_Load(object sender, EventArgs e)
